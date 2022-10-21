@@ -1,0 +1,142 @@
+@use "../mixin/breakpoints" as m;
+/*! SCSSにて管理*/
+/*! scss/setting/editor-styles.scss*/
+
+//段落
+.is-style-paragraph_01{
+    padding-left: 8px;
+}
+
+//ここからフォントサイズ
+//name = 注釈
+.has-x-small-font-size{
+    font-size:1.4rem;
+}
+//name = 通常
+.has-normal-font-size{
+    font-size:1.6rem;
+}
+//name = 大
+.has-large-font-size{
+    font-size:2.4rem;
+    @include m.mq(sp-ss){
+        font-size: 2rem;
+    }
+}
+//name = 特大
+.has-x-large-font-size{
+    font-size:5.6rem;
+    @include m.mq(tab){
+        font-size: 4rem;
+    }
+    @include m.mq(sp){
+        font-size: 3.6rem;
+    }
+    @include m.mq(sp-ss){
+        font-size: 3.2rem;
+    }
+}
+
+
+//ここから見出しレイアウト
+//見出し_ペン
+.is-style-heading_01{
+    font-weight: bold;
+    margin-bottom: 1.5em;
+        &:before{
+            content: "";
+            display: inline-block;
+            background-image: url(//cocoro-web.jp/wp-content/uploads/2022/04/icon-pen.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 1.2em;
+            height: 1.2em;
+            margin-right: 1em;
+            vertical-align: text-top;
+        };
+}
+//見出し_チェック
+.is-style-heading_02{
+    font-weight: bold;
+    margin-bottom: 1.5em;
+        &:before{
+            content: "";
+            display: inline-block;
+            background-image: url(//cocoro-web.jp/wp-content/uploads/2022/04/icon-check.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 1.2em;
+            height: 1.2em;
+            margin-right: 1em;
+            vertical-align: text-top;
+        };
+}
+//見出し_カギ
+.is-style-heading_03{
+    font-weight: bold;
+    margin-bottom: 1.5em;
+        &:before{
+            content: "";
+            display: inline-block;
+            background-image: url(//cocoro-web.jp/wp-content/uploads/2022/04/icon-key.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 1.2em;
+            height: 1.2em;
+            margin-right: 1em;
+            vertical-align: text-top;
+        };
+}
+//見出し_クライアント
+.is-style-heading_04{
+    font-weight: bold;
+    margin-bottom: 1.5em;
+        &:before{
+            content: "";
+            display: inline-block;
+            background-image: url(http://cocoro-web.jp/wp-content/uploads/2022/04/icon-client.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 1.2em;
+            height: 1.2em;
+            margin-right: 1em;
+            vertical-align: text-top;
+        };
+}
+
+//テーブル
+//テーブル_01
+.is-style-table_01{
+
+    table{
+        border-collapse: separate;
+        border-spacing: 0px 30px;
+    }
+    table,
+    table td{
+        padding: 0;
+        border: 0 none;
+        @include m.mq(tab){
+            display: block;
+        }
+    }
+    table td{
+        margin-bottom: 20px;
+        &:first-child{
+            font-weight: bold;
+            @include m.mq(tab){
+                margin-bottom: 10px;
+            }
+        }
+        &:last-child{
+            @include m.mq(tab){
+                padding-left: 1em;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

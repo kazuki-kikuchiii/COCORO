@@ -1,0 +1,176 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/title" as title;
+@use "../../../mixin/btn" as btn;
+
+//ページ上部、ボタン周辺
+.faq{
+    margin: 46px auto 187px;
+    &__title{
+        @include title.title_04;
+        &--main{
+            padding-bottom: 5px;
+        }
+    }
+}
+.customers{
+    &__list{
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        @include m.mq(other){
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+    &__button{
+        &--link{
+            width: 250px;
+            display: inline-block;
+            border-radius: 50px;
+            line-height: 60px;
+            padding: 0 20px 0 60px;
+            background-color: v.$base-color_04;
+            border: solid 1px v.$base-color_01;
+            box-shadow: 3px 3px 3px v.$btn-color_03;
+            font-weight: bold;
+            position: relative;
+            text-align: center;
+            &_other{
+                padding: 0 50px 0 60px;
+            }
+            &::before,
+            &::after{
+                content: "";
+                width: 20px;
+                position: absolute;
+            }
+            &::before{
+                border-top: 2px solid v.$base-color_01;
+                transform: rotate(30deg);
+                left: 25px;
+                top: 24px;
+            }
+            &::after{
+                border-top: 2px solid v.$base-color_01;
+                transform: rotate(-30deg);
+                left: 25px;
+                top: 33px;
+            }
+            &:hover{
+                background-color: v.$base-color_01;
+                color: v.$font-color_02;
+                transition: .3s;
+                    &::before,
+                    &::after{
+                        border-top:2px solid v.$base-color_04;
+                    }
+            }
+        }
+    }
+}
+
+//アコーディオン
+//よくある質問内、共通
+.accordion{
+    &__list{
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    &__item{
+        margin: 10px 0;
+        border: solid 1px v.$line-color_02;
+        border-radius: 10px;
+        background-color: v.$base-color_04;
+    }
+    &__question{
+        position: relative;
+        cursor: pointer;
+        padding: 3% 40px 3% 50px;
+        transition: all .5s ease;
+        width: 100%;
+        @include m.mq(sp){
+            padding: 5% 40px 5% 10px;;
+        }
+        &::before,
+        &::after{
+            position: absolute;
+            content:'';
+            width: 15px;
+            height: 2px;
+            background-color: v.$font-color_01;
+            transition: .3s;
+        }
+        &::before{
+            top:48%;
+            right: 20px;
+            transform: rotate(45deg);
+        }
+        &::after{    
+            top:48%;
+            right: 10px;
+            transform: rotate(-45deg);
+        }
+        //jsにてcloseがついた時の動き
+        &.close::before,
+        &.close::after{
+            transition: .3s;
+            background-color: v.$base-color_01;
+        }
+        &.close::before{
+            transform: rotate(-45deg);
+        }
+        &.close::after{
+            transform: rotate(45deg);
+        }
+    }
+    &__box{
+        display: none;
+        background: v.$faq-color_01;
+        margin:0 3% 3% 3%;
+        padding: 3%;
+        line-height: 1.5;
+    }
+    &__answer{
+        &--deco{
+            font-weight: bold;
+        }
+        &--link{
+            font-weight: bold;
+            &:hover{
+                color: v.$base-color_01;
+                transition: .3s;
+            }
+        }
+    }
+}
+
+//ページ一番下、テキスト・ボタン
+.faq__after{
+    text-align: center;
+    padding-bottom: 79px;
+    @include m.mq(sp){
+        padding-bottom: 40px;
+    }
+        &--text{
+            margin-bottom: 42px;
+            line-height: 1.5;
+            @include m.mq(sp){
+                text-align: left;
+            }
+            &_br{
+                display: block;
+                @include m.mq(sp){
+                    display: none;
+                }
+            }
+        }
+        &--link{
+            @include btn.btn_05;
+        }
+}

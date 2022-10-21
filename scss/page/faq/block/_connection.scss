@@ -1,0 +1,12 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/title" as title;
+
+.connection{
+    width: 100%;
+    max-width: 900px;
+    margin:0 auto 138px auto;
+        &__title{
+            @include title.title_05;
+        }
+}

@@ -1,0 +1,18 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/title" as title;
+
+.other{
+    width: 100%;
+    max-width: 900px;
+    margin:0 auto 138px auto;
+    @include m.mq(tab){
+        margin:0 auto 100px auto;
+    }
+    @include m.mq(sp){
+        margin:0 auto 70px auto;
+    }
+        &__title{
+            @include title.title_05;
+        }
+}

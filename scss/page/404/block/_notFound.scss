@@ -1,0 +1,50 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/btn" as btn;
+
+.notFound{
+    text-align: center;
+    margin: 105px auto 165px;
+    line-height: 1.5;
+    @include m.mq(tab){
+        margin: 70px auto 135px;
+    }
+    @include m.mq(sp){
+        margin: 50px auto 100px;
+    }
+    &__lead{
+        font-size: 3.2rem;
+        font-weight: bold;
+        margin-bottom: 66px;
+        @include m.mq(tab){
+            font-size: 2.4rem;
+        }
+        &_br-sp{
+            display: none;
+            @include m.mq(sp){
+                display: block;
+            }
+        }
+    }
+    &__text{
+        margin-bottom: 40px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        &_br{
+            display: block;
+            @include m.mq(tab){
+                display: none;
+            }
+        }
+        &_br-sp{
+            display: block;
+            @include m.mq(sp-ss){
+                display: none;
+            }
+        }
+    }
+    &__btn{
+        @include btn.btn_02;
+    }
+}

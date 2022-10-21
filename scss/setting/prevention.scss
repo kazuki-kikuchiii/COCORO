@@ -1,0 +1,37 @@
+/*!個別記事の崩れ防止用 */
+//画像の中央寄せ
+.aligncenter {
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+}
+//figureタグで囲まれた画像の中央寄せ
+.aligncenter img {
+    height: auto;
+    max-width: 100%;
+}
+//画像右寄せ
+.alignright {
+    height: auto;
+    margin-left: auto;
+    max-width: 100%;
+}
+//figureタグで囲まれた画像右寄せ
+.alignright img {
+    height: auto;
+    max-width: 100%;
+}
+//位置指定のない画像
+.alignnone {
+    height: auto;
+    max-width: 100%;
+}
+//figureタグで囲まれた位置指定のない画像
+.alignnone img {
+    height: auto;
+    max-width: 100%;
+}
+//自動折り返し有効化
+pre {
+    white-space: pre-wrap;
+}

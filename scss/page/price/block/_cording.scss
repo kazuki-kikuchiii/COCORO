@@ -1,0 +1,32 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/title" as title;
+@use "../../../mixin/btn" as btn;
+
+.cording{
+    margin-bottom: 200px;
+        &__box{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            &--text{
+                padding-bottom: 50px;
+                text-align: center;
+                line-height: 1.5;
+                @include m.mq(sp){
+                    text-align: left;
+                }
+                    &_br{
+                        display: block;
+                        @include m.mq(tab){
+                            display: none;
+                        }
+                    }
+            }
+            &--btn{
+                @include btn.btn_01;
+                text-align: center;
+                margin: 0 auto;
+            }
+        }
+}

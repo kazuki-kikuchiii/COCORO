@@ -1,0 +1,147 @@
+@use "../mixin/breakpoints" as m;
+@use "../base/vars" as v;
+
+//@useでの呼び出しは as btn
+
+//オレンジボタン(大)
+//中の文章が長い場合はbtn_05にて対応
+@mixin btn_01{
+    display: inline-block;
+    width: 600px;
+    line-height: 60px;
+    border-radius: 50px;
+    color: v.$btn-color_02;
+    font-weight: bold;
+    background-color: v.$base-color_01;
+    box-shadow: 3px 3px 6px v.$base-color_03;
+    transition: .3s;
+    @include m.mq(pc){
+        width: 400px;
+    }
+    @include m.mq(tab){
+        width: 320px;
+    }
+    @include m.mq(sp){
+        width: 280px;
+    }
+    @include m.mq(sp-s){
+        width: 260px;
+    }
+    @include m.mq(sp-ss){
+        width: 240px;
+    }
+    &:hover{
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+
+//白色ボタン(中)
+@mixin btn_02{
+    display: block;
+    text-align: center;
+        &--link{
+            display: inline-block;
+            border-radius: 50px;
+            line-height: 70px;
+            width: 350px;
+            background-color: v.$btn-color_02;
+            box-shadow: 3px 3px 10px v.$base-color_01;
+            transition: .3s;
+            @include m.mq(sp){
+                width: 280px;
+                box-shadow: 0 0 10px v.$base-color_01;
+            }
+            &:hover{
+                color: v.$font-color_02;
+                background-color: v.$base-color_01;
+                box-shadow: none;
+            }
+        }
+}
+
+//白色ボタン(中)→枠の枠内にボタンを配置の場合
+@mixin btn_03{
+    display: block;
+    text-align: center;
+        &--link{
+            display: inline-block;
+            border-radius: 50px;
+            line-height: 70px;
+            width: 350px;
+            background-color: v.$btn-color_02;
+            box-shadow: 3px 3px 10px v.$base-color_01;
+            transition: .3s;
+            @include m.mq(sp){
+                width: 260px;
+                box-shadow: 0 0 10px v.$base-color_01;
+            }
+            &:hover{
+                color: v.$font-color_02;
+                background-color: v.$base-color_01;
+                box-shadow: none;
+            }
+        }
+}
+
+//オレンジボタン(白枠内用)・contact-form送信する
+@mixin btn_04{
+    width: 400px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 60px;
+    border-radius: 50px;
+    color: v.$btn-color_02;
+    background-color: v.$base-color_01;
+    box-shadow: 3px 3px 6px v.$base-color_03;
+    transition: .3s;
+    @include m.mq(tab){
+        width: 320px;
+    }
+    @include m.mq(sp){
+        width: 280px;
+    }
+    @include m.mq(sp-s){
+        width: 260px;
+    }
+    @include m.mq(sp-ss){
+        width: 240px;
+    }
+    &:hover{
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+
+//オレンジボタン(大)
+//中の文章が短い場合はbtn_01にて対応
+@mixin btn_05{
+    display: inline-block;
+    width: 600px;
+    line-height: 60px;
+    border-radius: 50px;
+    color: v.$btn-color_02;
+    font-weight: bold;
+    background-color: v.$base-color_01;
+    box-shadow: 3px 3px 6px v.$base-color_03;
+    transition: .3s;
+    @include m.mq(pc){
+        width: 400px;
+    }
+    @include m.mq(tab){
+        width: 320px;
+    }
+    @include m.mq(sp){
+        width: 280px;
+    }
+    @include m.mq(sp-s){
+        width: 260px;
+    }
+    @include m.mq(sp-ss){
+        width: 260px;
+    }
+    &:hover{
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}

@@ -1,0 +1,80 @@
+@charset "utf-8";
+@use "../base/vars" as v;
+@use "../mixin/breakpoints" as m;
+html{
+  font-size: 62.5%;
+}
+body{
+  color: v.$font-color_01;
+  background-color:v.$base-color_03;
+  font-family: 'Noto Serif','Noto Serif JP', serif;
+  font-size: 1.6rem;
+  overflow-x: hidden;
+  font-weight: 500;
+}
+//jsでのハンバーガー操作
+.no-scroll{
+  overflow: hidden;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.container{
+  margin: 0 auto;
+  max-width: 1920px;
+}
+.wrapper{
+  margin: 0 auto;
+  max-width:1600px;
+  padding-right:20px;
+  padding-left:20px;
+  @include m.mq(tab){
+    padding-right:4vw;
+    padding-left:4vw;
+  }
+}
+.inner{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-right:20px;
+  padding-left:20px;
+  @include m.mq(tab){
+    padding-right:4vw;
+    padding-left:4vw;
+  }
+}
+
+//以下WPブロックエディターカラーパレット用
+//メインカラー
+.has-main-color{
+  color:#f09f2f;
+}
+.has-main-background-color{
+  background-color:#f09f2f;
+}
+//背景カラー
+.has-background-color{
+  color:#f1eee7;
+}
+.has-background-background-color{
+  background-color:#f1eee7;
+}
+//フォントカラー
+.has-main-font-color{
+  color:#1a1a1a;
+}
+.has-main-font-background-color{
+  background-color:#1a1a1a;
+}
+//フォントカラー(サブ)
+.has-sub-font-color{
+  color:#7d7d7d;
+}
+.has-sub-font-background-color{
+  background-color:#7d7d7d;
+}

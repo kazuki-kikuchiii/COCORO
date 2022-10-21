@@ -1,0 +1,117 @@
+@use "../base/vars" as v;
+@use "../mixin/breakpoints" as m;
+
+.news-aside{
+    max-width: 35%;
+    width: 100%;
+    padding-left: 5%;
+    @include m.mq(pc-s){
+        display: flex;
+        justify-content: space-between;
+        max-width: 100%;
+        padding-left: 0;
+    }
+    @include m.mq(tab){
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 70%;
+    }
+    @include m.mq(other-3){
+        max-width: 100%;
+    }
+//最新の投稿
+    &__notice{
+        margin-bottom: 100px;
+        @include m.mq(pc-s){
+            width: 45%;
+        }
+        @include m.mq(tab){
+            margin: 0 auto 100px auto;
+            width: 90%;
+        }
+        &--title{
+            border: solid 1px v.$line-color_02;
+            line-height: 60px;
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: v.$base-color_04;
+            border-radius: 10px;
+        }
+    }
+    &__item{
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: solid 1px v.$line-color_02;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+    &__link{
+        &:hover{
+            color: v.$base-color_01;
+            transition: .3s;
+        }
+        &--time{
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    }
+//ピックアップ記事
+    &__pickup{
+        @include m.mq(pc-s){
+            width: 45%;
+        }
+        @include m.mq(tab){
+            margin: 0 auto;
+            width: 90%;
+        }
+        &--title{
+            border: solid 1px v.$line-color_02;
+            line-height: 60px;
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: v.$base-color_04;
+            border-radius: 10px;
+        }
+        &--item{
+            margin-bottom:58px;
+        }
+    }
+    &__pickup-link{
+        &--image{
+            margin-bottom: 15px;
+            border: solid 1px v.$line-color_02;
+            overflow: hidden;
+            &:hover img{
+                transform: scale(1.1);
+            }
+                img{
+                    object-fit: cover;
+                    height: 24vh;
+                    transition: transform .6s ease;
+                    @include m.mq(tab){
+                        height: 32vh;
+                    }
+                    @include m.mq(other-3){
+                        height: 35vh;
+                    }
+                    @include m.mq(sp){
+                        height: 26vh;
+                    }
+                    @include m.mq(sp-s){
+                        height: 24vh;
+                    }
+                    @include m.mq(sp-ss){
+                        height: 20vh;
+                    }
+                }
+        }
+        &--title{
+            line-height: 1.3;
+            &:hover{
+                color: v.$base-color_01;
+                transition: .3s;
+            }
+        }
+    }
+}

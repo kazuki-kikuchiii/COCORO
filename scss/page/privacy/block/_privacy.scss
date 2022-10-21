@@ -1,0 +1,70 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/title" as title;
+
+.privacy{
+    &__inner{
+        max-width: 1366px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 2vw;
+        text-align: justify;
+        @include m.mq(sp){
+            padding: 0 4vw;
+            margin-bottom: 60px;
+            margin-top: 45px;
+        }
+    }
+    &__title{
+        @include title.title_04;
+        @include m.mq(sp){
+            margin-bottom: 60px;
+        }
+        @include m.mq(sp-ss){
+            text-align: center;
+        }
+    }
+    &__block{
+        margin-bottom: 4em;
+    }
+    &__s-title{
+        font-size: 2.4rem;
+        margin-bottom: .5em;
+    }
+    &__text{
+        line-height: 1.5;
+        padding-left: 1em;
+        margin-bottom: 1em;
+        @include m.mq(sp){
+            padding-left: 0;
+        }
+            &--last{
+                margin-top: 1em;
+                padding-left: 1em;
+                line-height: 1.5;
+            }
+    }
+    
+    &__sub-title{
+        padding-left: 1em;
+        margin-bottom: .5em;
+        @include m.mq(sp){
+            padding-left: 0;
+        }
+            &_2{
+                margin-top: 1em;
+            }
+    }
+    &__sub-list{
+        padding-left: 1em;
+        @include m.mq(sp){
+            padding-left: 0;
+        }
+    }
+    &__sub-item{
+        padding-left:1em;
+        text-indent:-1em;
+        line-height: 1.5;
+        margin-bottom: .5em;
+    }
+}

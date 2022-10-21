@@ -1,0 +1,104 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/title" as title;
+@use "../../../mixin/btn" as btn;
+
+.home-service{
+    margin-bottom: 148px;
+    &__title{
+        @include title.title_01;
+    }
+    &__list{
+        margin-bottom: 70px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        @include m.mq(tab){
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        @include m.mq(sp){
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+    }
+    &__item{
+        width: 30%;
+        min-width: 200px;
+        background: v.$base-color_04;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size:60%;
+        border-radius: 50%;
+        @include m.mq(tab){
+            width: 40%;
+        }
+        @include m.mq(sp){
+            width: 60%;
+        }
+        
+            &_01{
+                background-image: url(../../../img/icon-cording.png);
+            }
+            &_02{
+                background-image: url(../../../img/icon-pc.png);
+            }
+            &_03{
+                background-image: url(../../../img/icon-customize.png);
+            }
+        }
+    &__circle{
+        position: relative;
+        padding-top: 100%;
+        height: 0;
+            &--name{
+                font-size: 2.4rem;
+                font-weight: bold;
+                line-height: 1.31;
+                position: absolute;
+                top: calc((100% - 1em)/2);
+                left: 0;
+                right: 0;
+                margin: 0;
+                text-align: center;
+                @include m.mq(pc-s){
+                    font-size: 2rem; 
+                }
+                @include m.mq(tab){
+                    font-size: 1.8rem; 
+                }
+                    &_three{
+                        top: calc((100% - 2em)/2);
+                    }
+            }
+    }
+    &__action{
+        padding: 33px 3%;
+        background-color: v.$base-color_04;
+        border-radius: 50px;
+        text-align: center;
+            &--lead{
+                font-size: 2.4rem;
+                font-weight: bold;
+                padding-bottom: 38px;
+                @include m.mq(tab){
+                    font-size: 1.8rem;
+                    padding-bottom: 20px;
+                }
+                @include m.mq(sp){
+                    font-size: 1.6rem;
+                    line-height: 1.31;
+                }
+            }
+            &--btn{
+                @include btn.btn_01;
+            }
+    }
+    &__br{
+        display: none;
+        @include m.mq(sp){
+            display: block;
+        }
+    }
+}

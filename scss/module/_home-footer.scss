@@ -1,0 +1,199 @@
+@use "../base/vars" as v;
+@use "../mixin/breakpoints" as m;
+
+.home-footer{
+    margin: 64px auto 34px auto;
+        &__box{
+            background-color: v.$base-color_04;
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            @include m.mq(tab){
+                flex-direction: column-reverse;
+                justify-content: center;
+                align-items: center;
+            }
+            @include m.mq(sp){
+                padding: 50px 10px;
+            }
+        }
+        //footer左側
+        //468pxから下段
+        &__left{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            @include m.mq(tab){
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        &__logo{
+            width: 200px;
+            margin-bottom: 10px;
+            @include m.mq(tab){
+                margin-bottom: 25px;
+            }
+        }
+        &__position{
+            margin-bottom: 50px;
+            @include m.mq(tab){
+                margin-bottom: 40px;
+            }
+        }
+        &__table{
+            line-height: 2;
+        }
+        &__tr{
+            &--td{
+                &:first-of-type{
+                    padding-right: 20px;
+                    @include m.mq(tab){
+                        padding-right: 50px;
+                    }
+                    @include m.mq(sp){
+                        padding-right: 30px;
+                    }
+                }
+            }
+        }
+        //footer右側
+        //468pxから上段
+        &__right{
+            display: flex;
+            justify-content: flex-start;
+            font-weight: bold;
+            @include m.mq(tab){
+                margin-bottom: 55px;
+                justify-content: center;
+            }
+            @include m.mq(sp){
+                flex-direction: column;
+            }
+            
+        }
+        &__list{
+            margin-right: 50px;
+            &:last-of-type{
+                margin-right: 0;
+                @include m.mq(tab){
+                    margin-left: 4vw;
+                }
+                @include m.mq(sp){
+                    margin-left: 0;
+                }
+            }
+            @include m.mq(tab){
+                margin-right: 4vw;
+            }
+            @include m.mq(sp){
+                margin-right: 0;
+                text-align: center;
+            }
+        }
+        &__item{
+            margin-bottom: 30px;
+                &:last-of-type{
+                    margin-bottom: 0;
+                    @include m.mq(sp){
+                        margin-bottom: 30px;
+                    }
+                }
+                &_other{
+                    margin-bottom: 28px;
+                }
+                &--link{
+                    &:hover{
+                        transition: .3s;
+                        color: v.$base-color_01;
+                    }
+                }
+        }
+        &__cta{
+            margin-bottom: 30px;
+            @include m.mq(sp){
+                margin-bottom: 0;
+            }
+        }
+        &__cta-box{
+            @include m.mq(sp){
+                display: flex;
+            }
+            @include m.mq(sp-ss){
+                flex-direction: column;
+            }
+        }
+        &__mail,
+        &__person{
+            display: flex;
+            align-items: center;
+            vertical-align: bottom;
+            &:hover{
+                transition: .3s;
+                color: v.$base-color_01;
+            }
+            @include m.mq(sp){
+                width: 150px;
+                justify-content: center;
+                color: v.$base-color_04;
+                background-color: v.$base-color_01;
+                line-height: 45px;
+                border-radius: 50px;
+            }
+                svg{
+                    width: 18px;
+                    height: 19px;
+                    margin-right: 10px;   
+                }
+        }
+        &__person{
+            margin-bottom: 30px;
+            .a{
+                fill:v.$font-color_01;
+                @include m.mq(sp){
+                    fill:v.$base-color_04;
+                    stroke:v.$base-color_04;
+                }
+            }
+            &:hover{
+                color: v.$base-color_01;
+                .a{
+                    fill:v.$base-color_01;
+                    stroke:v.$base-color_01;
+                    transition: .3s;
+                }
+            }
+            @include m.mq(sp){
+                margin-bottom: 0;
+                margin-right: 10px;
+            }
+            @include m.mq(sp-ss){
+                margin-bottom: 30px;
+            }
+        }
+        &__mail{
+            .a{
+                @include m.mq(sp){
+                    stroke:v.$base-color_04;
+                    stroke-width:5px;
+                }
+            }
+            &:hover{
+                color: v.$base-color_01;
+                stroke-width:10;
+                .a{
+                    stroke:v.$base-color_01;
+                    transition: .3s;
+                }
+            }
+        }
+        //copy-right
+        &__copy{
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+        }
+}

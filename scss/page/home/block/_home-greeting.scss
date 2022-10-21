@@ -1,0 +1,81 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/title" as title;
+@use "../../../mixin/btn" as btn;
+.greeting{
+    margin: 165px auto 148px auto;
+    &__title{
+        @include title.title_01;
+    }
+    &__contents{
+        background-color: v.$base-color_04;
+        padding: 78px 45px 50px 45px;
+        margin-bottom: 60px;
+        border-radius: 50px;
+        font-weight: normal;
+        @include m.mq(tab){
+            padding: 50px 15px;
+        }
+    }
+    &__box{
+        line-height: 2;
+        &--text{
+            padding-bottom: 1.5em;
+            line-height: 1.37;
+                &:last-child{
+                    padding-bottom: 50px;
+                }
+                &_other{
+                    padding-bottom: 0;
+                }
+                &_br{
+                    @include m.mq(pc){
+                        display: none;
+                    }
+                }
+        }
+    }
+    &__list{
+        list-style: disc;
+        list-style-position:inside;
+        margin-bottom: 1.5em;
+            &--item{
+                line-height: 1.37;
+            }
+    }
+    &__name-box{
+        display: flex;
+        justify-content: flex-end;
+        @include m.mq(tab){
+            justify-content: center;
+        }
+    }
+    &__name{
+        display: flex;
+        flex-direction: column;
+        @include m.mq(tab){
+            align-items: center;
+            justify-content: center;
+        }
+        &--store{
+            text-transform: uppercase;
+            font-size: 2rem;
+            text-align: left;
+            padding-bottom: 5px;
+            @include m.mq(tab){
+                font-size: 1.6rem;
+                text-align: center;
+            }
+        }
+        &--me{
+            font-size: 3.2rem;
+            letter-spacing: .2em;
+            @include m.mq(sp){
+                font-size: 2.4rem;
+            }
+        }
+    }
+    &__btn{
+        @include btn.btn_02;
+    }
+}

@@ -1,0 +1,62 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/btn" as btn;
+
+.after{
+    &__card{
+        background-color: v.$base-color_04;
+        border: solid 2px v.$base-color_01;
+        padding: 64px 15px;
+        margin-bottom: 80px;
+        &--main{
+            font-size: 3.2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        &--text{
+            text-align: center;
+            line-height: 1.5;
+            margin-bottom: 2em;
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+            @include m.mq(sp){
+                text-align: left;
+            }
+            &_br{
+                display: block;
+                @include m.mq(sp){
+                    display: none;
+                }
+            }
+        }
+    }
+    &__comment{
+        font-size: 2rem;
+        line-height: 1.5;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 50px;
+        @include m.mq(sp){
+            display: flex;
+            justify-content: center;
+            text-align: left;
+        }
+            &_br{
+                display: block;
+                @include m.mq(sp-ss){
+                    display: none;
+                }
+            }
+    }
+    &__button{
+        display: flex;
+        padding-bottom: 20px;
+        &--link{
+            @include btn.btn_01;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+}

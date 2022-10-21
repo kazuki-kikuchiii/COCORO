@@ -1,0 +1,13 @@
+@charset "utf-8";
+@use "../../base/base";
+@use "../../base/vars";
+@use "../../module/home-header";
+@use "../../page/price/block/price-kv";
+@use "../../page/price/block/price-breadcrumb";
+@use "../../page/price/block/price";
+@use "../../page/price/block/price-common";
+@use "../../page/price/block/cording";
+@use "../../page/price/block/newhp";
+@use "../../page/price/block/custom";
+@use "../../page/price/block/after";
+@use "../../module/home-footer";

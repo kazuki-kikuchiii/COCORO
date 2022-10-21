@@ -1,0 +1,50 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+
+.section-wrapper_r{
+    margin: 97px auto 300px;
+    display: flex;
+    @include m.mq(pc-s){
+        flex-direction: column;
+    }
+    @include m.mq(tab){
+        margin: 70px auto 200px;
+    }
+    @include m.mq(sp){
+        margin: 50px auto 100px;
+    }
+}
+
+.works-inner{
+    max-width:1366px;
+    padding-right:20px;
+    padding-left:20px;
+    @include m.mq(tab){
+        padding-right:4vw;
+        padding-left:4vw;
+    }
+}
+
+.news-article{
+    max-width: 65%;
+    width: 100%;
+    @include m.mq(pc-s){
+        margin: 0 auto 150px auto;
+        max-width: 100%;
+    }
+    &__time{
+        margin-bottom: 10px;
+    }
+    &__thumbnail{
+        max-height: 630px;
+        margin-bottom: 50px;
+        border: solid 1px v.$line-color_02;
+    }
+    &__writing-space{
+        line-height: 1.3;
+        padding-left: 1vw;
+        @include m.mq(pc-s){
+            padding-left: 2vw;
+        }
+    }
+}

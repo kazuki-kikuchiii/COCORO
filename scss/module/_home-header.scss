@@ -1,0 +1,222 @@
+@use "../base/vars" as v;
+@use "../mixin/hover" as hov1;
+@use "../mixin/breakpoints" as m;
+
+.home-header_r{
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+.home-header_r.fixed{
+    position: fixed;
+    background-color: v.$sticky-bg_01;
+    top: 0;
+    left:0;
+    transition: .6s;
+    z-index: 40;
+    box-shadow: 3px 0 6px v.$base-color_03;
+}
+
+.home-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 2vw;
+    @include m.mq(sp){
+        padding: 8px 2vw;
+    }
+        &__left{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img{
+                display: inline-block;
+                width: 150px;
+                    @include m.mq(sp){
+                        width: 100px;
+                    }
+                }
+        }
+        &__txt-box{
+            display: flex;
+            font-size: 1.4rem;
+            margin-left: 1em;
+            line-height: 1.5;
+            @include m.mq(sp){
+                font-size: 1.2rem;
+            }
+        }
+        &__right{
+            display: flex;
+            align-items: center;
+            @include m.mq(pc){
+                visibility: hidden;
+                position: relative;
+                transform: translateX(100%);
+                overflow-x: hidden;
+                transition: all 0.6s;
+            }
+        }
+        &__list{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            @include m.mq(pc){
+                flex-direction: column;
+                justify-content: space-between;
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+        }
+        &__item{
+            margin-right: 24px;
+            font-weight: bold;
+            letter-spacing: .1em;
+            
+            &:last-child{
+                margin-right: 0;
+            }
+            @include m.mq(pc){
+                flex-wrap:wrap;
+            }
+            @include m.mq(pc){
+                margin: 0 0 5vh 0;
+                color: v.$font-color_02;
+            }
+                &--text{
+                    position: relative;
+                    z-index: 1;
+                    &::after{
+                        @include hov1.hover01;
+                    }
+                }
+        }
+        &__cta{
+            display: flex;
+            @include m.mq(other-2){
+                padding-left: 0;
+            }
+            @include m.mq(pc){
+                padding-left: 0;
+                width: 300px;
+                justify-content: center;
+            }
+        }
+        // &__person,
+        &__mail{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            transition: .3s;
+            background-color: #fff;
+            border-radius: 50px;
+            padding: 0 24px;
+            @include m.mq(pc){
+                background-color: v.$base-color_04;
+                padding: 10px;
+                width: 140px;
+                border-radius: 50px;
+            }
+            &--text{
+                padding-top: 2px;
+            }
+        }
+        // &__person{
+        //     padding-right: 15px;
+        //     .a{
+        //         fill:black;
+        //     }
+        //     &:hover{
+        //         color: v.$base-color_01;
+        //         .a{
+        //             fill:v.$base-color_01;
+        //             stroke:v.$base-color_01;
+        //             transition: .3s;
+        //         }
+        //     }
+        // }
+        &__mail{
+            &:hover{
+                color: v.$base-color_01;
+                .a{
+                    stroke:v.$base-color_01;
+                    transition: .3s;
+                }
+            }
+        }
+    }
+
+    //メニューをhoverした時の動き
+    .home-header__item--link:hover .home-header__item--text:after{
+        width: 100%;
+    }
+
+
+    //ハンバーガーメニューの実装
+    //btnの箱になる部分
+    .burger-btn{
+        display: none;
+        @include m.mq(pc){
+            display: block;
+            position: absolute;
+            top: calc((100% - 30px)/2);
+            right: 2vw;
+            width: 30px;
+            height: 20px;
+        }
+    }
+
+    .bar{
+        display: block;
+        height: 2px;
+        width: 30px;
+        background-color: v.$font-color_01;
+        transition: 0.3s ease-in-out;
+        z-index: 50;
+            &_top{
+                position: relative;
+                bottom:0px;
+            }
+            &_bottom{
+                position: relative;
+                top:8px;
+            }
+    }
+
+    //クラス「open」を持った時の動き
+    .burger-btn.open .bar_top,
+    .burger-btn.open .bar_bottom{
+        background-color: v.$base-color_04;
+        transition: 0.3s ease-in-out;
+    }
+
+    .burger-btn.open .bar_top{
+        transform: translate(0,10px) rotate(45deg);
+    }
+    .burger-btn.open .bar_bottom{
+        transform: translate(0,0) rotate(-45deg);
+    }
+
+    //nav
+    //jsから付与クラス
+    .js-block{
+        visibility: visible;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70vw;
+        height: 100vh;
+        background-color: v.$burger-bg_01;
+        z-index: 30;
+        transform: translateX(0%);
+        transition: .6s ease-in-out;
+        @include m.mq(sp){
+            width: 100vw;
+        }
+    }

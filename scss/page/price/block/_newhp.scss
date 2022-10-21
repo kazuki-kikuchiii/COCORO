@@ -1,0 +1,75 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/btn" as btn;
+
+.newhp{
+    &__comment{
+        font-size: 2rem;
+        line-height: 1.5;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 50px;
+        @include m.mq(sp){
+            display: flex;
+            justify-content: center;
+            text-align: left;
+        }
+            &_br{
+                display: block;
+                @include m.mq(sp-ss){
+                    display: none;
+                }
+            }
+    }
+    //カード内
+    &__main{
+        text-align: center;
+        font-weight: bold;
+        padding-bottom: 30px;
+            &--lead{
+                display: block;
+                font-size: 2rem;
+                padding-bottom: 10px;
+                    &_br{
+                        display: none;
+                        @include m.mq(sp){
+                            display: block;
+                        }
+                    }
+            }
+            &--title{
+                display: block;
+                font-size: 3.2rem;
+            }
+    }
+    &__card{
+        background-color: v.$base-color_04;
+        border: solid 2px v.$base-color_01;
+        padding: 64px 15px;
+        margin-bottom: 132px;
+        &--text{
+            text-align: center;
+            line-height: 1.5;
+            margin-bottom: 2em;
+            &:last-of-type{
+                margin-bottom: 50px;
+            }
+            @include m.mq(sp){
+                text-align: left;
+            }
+            &_br{
+                display: block;
+                @include m.mq(pc){
+                    display: none;
+                }
+            }
+        }
+    }
+    //カードボタン
+    &__link{
+        @include btn.btn_04;
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+    }
+}

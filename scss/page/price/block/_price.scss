@@ -1,0 +1,94 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/title" as title;
+
+.customers{
+    margin: 46px auto 150px;
+    &__title{
+        @include title.title_04;
+        @include m.mq(sp-ss){
+            text-align: center;
+        }
+    }
+    &__textbox{
+        text-align: center;
+        line-height: 1.5;
+        margin-bottom: 108px;
+        @include m.mq(tab){
+            text-align: left;
+        }
+        &--text{
+            margin-bottom: 30px;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+                &_br{
+                    display: block;
+                    @include m.mq(tab){
+                        display: none;
+                    }
+                }
+        }
+    }
+    &__box{
+        margin-bottom: 198px;
+    }
+    &__list{
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        @include m.mq(other){
+            flex-direction: column;
+            gap: 20px;
+        }
+    }
+    &__button{
+        &--link{
+            width: 250px;
+            display: inline-block;
+            border-radius: 50px;
+            line-height: 60px;
+            padding: 0 20px 0 60px;
+            background-color: v.$base-color_04;
+            border: solid 1px v.$base-color_01;
+            box-shadow: 3px 3px 3px v.$btn-color_03;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+			@include m.mq(tab){
+            text-align: left;
+        	}
+            &::before,
+            &::after{
+                content: "";
+                width: 20px;
+                position: absolute;
+            }
+            &::before{
+                border-top: 2px solid v.$base-color_01;
+                transform: rotate(30deg);
+                left: 25px;
+                top: 24px;
+            }
+            &::after{
+                border-top: 2px solid v.$base-color_01;
+                transform: rotate(-30deg);
+                left: 25px;
+                top: 33px;
+            }
+            &:hover{
+                background-color: v.$base-color_01;
+                color: v.$font-color_02;
+                transition: .3s;
+                    &::before,
+                    &::after{
+                        border-top:2px solid v.$base-color_04;
+                    }
+            }
+        }
+    }
+}

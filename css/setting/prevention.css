@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/*!個別記事の崩れ防止用 */
+.aligncenter {
+  height: auto;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.aligncenter img {
+  height: auto;
+  max-width: 100%;
+}
+
+.alignright {
+  height: auto;
+  margin-left: auto;
+  max-width: 100%;
+}
+
+.alignright img {
+  height: auto;
+  max-width: 100%;
+}
+
+.alignnone {
+  height: auto;
+  max-width: 100%;
+}
+
+.alignnone img {
+  height: auto;
+  max-width: 100%;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+/*# sourceMappingURL=prevention.css.map */

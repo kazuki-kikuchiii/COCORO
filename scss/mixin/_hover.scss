@@ -1,0 +1,21 @@
+@use "../base/vars" as v;
+@use "../mixin/breakpoints"as m;
+//@useでの呼び出しは as hov1
+
+//headerのホバー時の動き
+//aの::afterに対して呼び出すこと
+//これだけでは動きません、hover時にa,spanをwidth100%で伸ばすこと
+@mixin hover01{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: v.$hover-color_01;
+    z-index: -1;
+    transition: all 0.3s;
+    @include m.mq(tab){
+        background: v.$hover-color_02;
+    }
+}

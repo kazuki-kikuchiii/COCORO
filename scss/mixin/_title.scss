@@ -1,0 +1,182 @@
+@use "./breakpoints"as m;
+@use "./../base/vars"as v;
+//@useでの呼び出しはtitle
+
+//セクションタイトル(中央)
+//固定ページ用は04へ
+@mixin title_01{
+    margin-bottom: 37px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        &--main{
+            font-size: 6.4rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            @include m.mq(tab){
+                font-size: 4.8rem;
+            }
+            @include m.mq(sp-ss){
+                font-size: 3.2rem;
+            }
+        }
+        &--sub{
+            font-size: 2rem; 
+            font-weight: bold;
+            @include m.mq(sp-ss){
+                font-size: 1.6rem;
+            }
+        }
+}
+
+//セクションタイトル(左寄せ)
+@mixin title_02{
+    margin-bottom: 97px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+        &--main{
+            font-size: 6.4rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            @include m.mq(tab){
+                font-size: 4.8rem;
+            }
+            @include m.mq(sp-ss){
+                font-size: 3.2rem;
+            }
+        }
+        &--sub{
+            font-size: 2rem; 
+            font-weight: bold;
+            @include m.mq(sp-ss){
+                font-size: 1.6rem;
+            }
+        }
+}
+
+//固定ページ、KVタイトル
+@mixin title_03{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+        &--main{
+            font-size: 6.4rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            @include m.mq(tab){
+                font-size: 4.8rem;
+            }
+            @include m.mq(sp){
+                font-size: 4.2rem;
+            }
+            @include m.mq(sp-ss){
+                font-size: 4rem;
+            }
+        }
+        &--sub{
+            font-size: 2rem; 
+            font-weight: bold;
+            @include m.mq(sp-ss){
+                font-size: 1.6rem;
+            }
+        }
+}
+
+//固定ページ用、セクションタイトル(中央)
+@mixin title_04{
+    margin-bottom: 96px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include m.mq(tab){
+        margin-bottom: 90px;
+    }
+    @include m.mq(sp-ss){
+        margin-bottom: 70px;
+    }
+        &--main{
+            font-size: 5.6rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            @include m.mq(tab){
+                font-size: 4rem;
+            }
+            @include m.mq(sp){
+                font-size: 3.6rem;
+            }
+            @include m.mq(sp-ss){
+                font-size: 3.2rem;
+            }
+        }
+        &--sub{
+            font-size: 2rem; 
+            font-weight: bold;
+            @include m.mq(sp-ss){
+                font-size: 1.6rem;
+            }
+        }
+}
+
+//price見出し(オレンジ四角枠)
+@mixin title_05{
+    width: 100%;
+    text-align: center;
+    color: v.$font-color_02;
+    background-color: v.$base-color_01;
+    line-height: 60px;
+    font-size: 3.2rem;
+    font-weight: bold;
+    margin-bottom: 76px;
+    @include m.mq(tab){
+        font-size: 2.4rem;
+        margin-bottom: 50px;
+    }
+    @include m.mq(sp){
+        font-size: 2.4rem;
+        margin-bottom: 30px;
+    }
+}
+
+//priceサブ見出し
+@mixin title_06{
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 24px;
+    @include m.mq(tab){
+        font-size: 2rem;
+    }
+}
+
+//contact見出し(オレンジ四角枠)
+@mixin title_07{
+    width: 100%;
+    text-align: center;
+    color: v.$font-color_02;
+    background-color: v.$base-color_01;
+    line-height: 60px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    margin-bottom: 76px;
+    padding: 0 8px;
+    &_br{
+        display: none;
+    }
+    @include m.mq(tab){
+        font-size: 2rem;
+        margin-bottom: 50px;
+    }
+    @include m.mq(sp){
+        font-size: 1.6rem;
+        margin-bottom: 48px;
+        line-height: 1.3;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &_br{
+            display: block;
+        }
+    }
+}
+

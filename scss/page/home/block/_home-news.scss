@@ -1,0 +1,82 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/title" as title;
+@use "../../../mixin/btn" as btn;
+
+//home-News
+//※固定ページにてnewsを使用
+.home-news{
+    margin: 94px auto 94px;
+    &__container{
+        background-color: v.$base-color_04;
+        border-radius: 50px;
+        padding: 87px 100px 119px;
+        @include m.mq(tab){
+            padding: 50px 4vw 119px;
+        }
+    }
+    &__title{
+        @include title.title_01;
+    }
+    &__table{
+        margin: 94px auto 104px auto;
+    }
+    &__article{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 30px 0;
+        border-bottom: 1px solid v.$line-color_01;
+        position: relative;
+            &::after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0%;
+                height: 2px;
+                background-color: v.$base-color_01;
+                transition: all 0.3s;
+            }
+        @include m.mq(pc){
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+    }
+    &__time{
+        padding-left: 30px;
+        flex-basis: 200px;
+        @include m.mq(pc){
+            flex-basis: 0;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+    }
+    &__lead{
+        font-weight: normal;
+        @include m.mq(pc){
+            padding-left: 20px;
+        }
+    }
+    &__arrow{
+        position: absolute;
+        right: 20px;
+        top:calc((100% - 20px) /2);
+        width: 60px;
+        opacity: 0;
+        transition: all .3s;
+        @include m.mq(sp){
+            display: none;
+        }
+    }
+    &__btn{
+        @include btn.btn_03;
+    }
+}
+.home-news__article:hover.home-news__article::after{
+    width: 100%;
+}
+.home-news__article:hover .home-news__arrow{
+    opacity: 1;
+}

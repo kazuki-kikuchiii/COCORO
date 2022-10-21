@@ -1,0 +1,146 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/title"as title;
+
+.profile{
+    margin: 46px auto 150px;
+    &__title{
+        @include title.title_04;
+    }
+    &__lead{
+        text-align: center;
+        line-height: 2;
+        margin-bottom: 148px;
+        @include m.mq(tab){
+            text-align: left;
+        }
+            &--text{
+                margin-bottom: 45px;
+                &:last-of-type{
+                    margin-bottom: 0;
+                }
+                    &_br{
+                        display: block;
+                        @include m.mq(other){
+                            display: none;
+                        }
+                    }
+            }
+    }
+    &__contents-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include m.mq(pc-s){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    //写真
+    &__image{
+        max-width: 350px;
+        width: 100%;
+        min-width: 320px;
+        height: 500px;
+        margin-right: 20px;
+        @include m.mq(pc-s){
+            height: 350px;
+            margin-right: 0;
+            margin-bottom: -30px;
+            z-index:1;
+            display: flex;
+            justify-content: center;
+        }
+        @include m.mq(sp-ss){
+            min-width: 280px;
+        }
+            img{
+                height: 500px;
+                border-radius: 50px;
+                @include m.mq(pc-s){
+                    height: 350px;
+                }
+            }
+    }
+    //経歴などのエリア
+    &__area{
+        max-width: 530px;
+        width: 100%;
+        padding: 50px 30px;
+        background-color: v.$base-color_04;
+        border-radius: 50px;
+        @include m.mq(sp){
+            padding: 50px 15px;
+        }
+    }
+    &__name{
+        display: flex;
+        align-items: flex-end;
+        font-weight: bold;
+        margin-bottom: 45px;
+        @include m.mq(pc-s){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+            &--ja{
+                margin-right: 50px;
+                font-size: 3.2rem;
+                @include m.mq(pc-s){
+                    margin-right: 0;
+                }
+            }
+            &--en{
+                font-size: 2.4rem;
+            }
+    }
+    &__career{
+        font-size: 2.4rem;
+        font-weight: bold;
+        @include m.mq(tab){
+            margin-bottom: 20px;
+        }
+    }
+    &__historyarea{
+        white-space: nowrap;
+        border-collapse: separate;
+        border-spacing: 20px 30px;
+        line-height: 1.31;
+        @include m.mq(tab){
+            white-space:normal;
+            border-spacing: 0 0;
+            margin-left: 1em;
+        }
+    }
+    &__row{
+        @include m.mq(tab){
+            display: block;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        &--year{
+            @include m.mq(tab){
+                display: block;
+                width: 100%;
+            }
+        }
+        &--event{
+            @include m.mq(tab){
+                padding-left: 1em;
+            }
+            &_br{
+                display: block;
+                @include m.mq(sp){
+                    display: none;
+                }
+            }
+            &_sp-br{
+                display: none;
+                @include m.mq(sp){
+                    display: block;
+                }
+            }
+        }
+    }
+}

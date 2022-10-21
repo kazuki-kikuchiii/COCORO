@@ -1,0 +1,97 @@
+@use "../base/base";
+@use "../base/vars" as v;
+@use "../mixin/breakpoints" as m;
+
+.discussion{
+    padding: 0 2vw;
+        &__bg{
+            margin: 48px auto 64px auto;
+            max-width: 936px;
+            width: 100%;
+            background-color: v.$base-color_04;
+            border-radius: 50px;
+            text-align: center;
+            position: relative;
+            padding: 30px 1vw;
+            overflow: hidden;
+            @include m.mq(sp){
+                margin: 24px auto 32px auto;
+                padding: 24px 1vw;
+            }
+        }
+        &__title{
+            font-size: 3.2rem;
+            font-weight: bold;
+            letter-spacing: -.05em;
+            margin-bottom: 24px;
+            @include m.mq(sp){
+                font-size: 2.4rem;
+            }
+        }
+        &__text{
+            line-height: 1.5;
+            @include m.mq(sp){
+            }
+                &--span{
+                    font-weight: bold;
+                }
+                &_br-sp{
+                    display: none;
+                    @include m.mq(sp){
+                        display: block;
+                    }
+                }
+        }
+        &__text:first-of-type{
+            margin-bottom: 12px;
+            @include m.mq(sp){
+                letter-spacing: -.03em;
+            }
+        }
+        &__text:last-of-type{
+            margin-bottom: 24px;
+        }
+        &__link-box{
+            &--text{
+                font-weight: bold;
+                margin-bottom: 8px;
+            }
+            &--link{
+                display: inline-block;
+                max-width: 350px;
+                width: 100%;
+                line-height: 64px;
+                background-color: cornflowerblue;
+                color: v.$base-color_04;
+                font-weight: bold;
+                transition: .3s;
+                &:hover{
+                    opacity: .8;
+                }
+                @include m.mq(sp){
+                    max-width: 300px;
+                }
+                    img{
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin: 0 16px 6px 0;
+                        width: 27px;
+                        height: 27px;
+                    }
+            }
+        }
+        &__pic{
+            position: absolute;
+            bottom: -16px;
+            right: -24px;
+            opacity: .2;
+            pointer-events: none;
+            @include m.mq(other-3){
+                opacity: .1;
+            }
+                img{
+                    max-width: 400px;
+                    height: 280px;
+                }
+        }
+}

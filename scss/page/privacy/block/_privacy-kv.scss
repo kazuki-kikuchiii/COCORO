@@ -1,0 +1,37 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/title" as title;
+
+.privacy-kv{
+    height: 30vh;
+    margin-top: 100px;
+    background-image: url(./../../../img/kv_09.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    @include m.mq(sp){
+        margin-top: 80px;
+    }
+        &__bg{
+            height: 44vh;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+            width: 100%;
+            height: 80%;
+            background-color: v.$base-color_05;
+                &_s{
+                    height: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
+        }
+        &__title{
+            @include title.title_03;
+        }
+}

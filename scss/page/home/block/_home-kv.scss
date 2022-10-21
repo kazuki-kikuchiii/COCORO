@@ -1,0 +1,235 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+
+.home-kv{
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    &__box{
+        margin-top: 13vh;
+        height: 87vh;
+        width: 100%;
+        position: relative;
+    }
+    &__illust{
+        position: absolute;
+        top: 10%;
+        right: 10%;
+        max-width: 1100px;
+        width:38.75vw;
+        height: 44vh;
+        background:linear-gradient(45deg,v.$gradient_color_01,v.$gradient_color_02, v.$gradient_color_03);
+        background-size: 200% 200%;
+        -webkit-animation: fluid 30s ease 0s infinite,gradient 20s ease infinite;
+                animation: fluid 30s ease 0s infinite,gradient 20s ease infinite;
+        @include m.mq(pc-s){
+            width:80vw;
+            height: 40vh;
+        }
+        @include m.mq(tab){
+            top: 15%;
+            right: 5%;
+            width:85vw;
+            height: 40vh;
+        }
+        @include m.mq(sp){
+            width:90vw;
+            height: 40vh;
+        }
+    }
+    &__textarea{
+        max-width: 1100px;
+        padding: 0 4vw;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+    }
+    &__text{
+        font-size: 4.4rem;
+        z-index: 10;
+        margin-bottom: 20vh;
+        padding-left: 25px;
+        text-shadow: 3px 3px 6px v.$base-color_04;
+        @include m.mq(tab){
+            font-size: 3.6rem;
+        }
+        @include m.mq(sp){
+            font-size: 3.2rem;
+        }
+        @include m.mq(sp-s){
+            font-size: 2.4rem;
+        }
+            &--lead{
+                padding-bottom: 30px;
+                &:last-of-type{
+                    padding-bottom: 0px;
+                }
+                &:first-of-type{
+                    position: relative;
+                    padding-top: 20px;
+                }
+                .kv__text--lead_circle{
+                    z-index: -1;
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    left: -25px;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background-color: v.$base-color_04;
+                }
+            }
+    }
+    &__image{
+        position: absolute;
+        z-index: -1;
+        right: 5%;
+        bottom: 10%;
+        width: 30vw;
+        height: 20vh;
+        opacity: .6;
+        @include m.mq(pc-s){
+            width: 40vw;
+            right: 1%;
+        }
+        @include m.mq(tab){
+            height: 30vh;
+            bottom: 5%;
+        }
+    }
+
+//ビジュアルのスクロールバー
+    &__scroll{
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        right: 50%;
+        width: 1px;
+        height: 140px;
+        background-color: v.$scroll-line_01;
+        overflow: hidden;
+        @include m.mq(sp){
+            height: 100px;
+        }
+            &--announce{
+                position: absolute;
+                bottom: 5%;
+                z-index: 2;
+                display: block;
+                width: 1px;
+                height: 140px;
+                background-color: v.$scroll-line_02;
+                -webkit-animation-name: marker;
+                        animation-name: marker;
+                -webkit-animation-timing-function: cubic-bezier(0.54, 0, 0, 0.99);
+                        animation-timing-function: cubic-bezier(0.54, 0, 0, 0.99);
+                -webkit-animation-iteration-count: infinite;
+                        animation-iteration-count: infinite;
+                -webkit-animation-duration: 2s;
+                        animation-duration: 2s;
+            }
+            @include m.mq(sp){
+                height: 100px;
+            }
+    }
+}
+
+//スクロールバーアニメーション
+@-webkit-keyframes marker{
+    0% {
+    transform: translateY(-100%);
+    }
+    100% {
+    transform: translateY(107%);
+    }
+}
+@keyframes marker{
+    0% {
+    transform: translateY(-100%);
+    }
+    100% {
+    transform: translateY(107%);
+    }
+}
+
+//流体アニメーションの実行２種類
+//琉球体のアニメーション
+@-webkit-keyframes fluid{
+    0% {
+    background-position: 0% 50%;
+    }
+    50% {
+    background-position: 100% 50%;
+    }
+    100% {
+    background-position: 0% 50%;
+    }
+}
+@keyframes fluid{
+    0% {
+    background-position: 0% 50%;
+    }
+    50% {
+    background-position: 100% 50%;
+    }
+    100% {
+    background-position: 0% 50%;
+    }
+}
+
+//グラデーションをずらす
+@-webkit-keyframes gradient {  
+    0%, 100% {
+    border-radius: 13% 87% 19% 81% / 62% 63% 37% 38%;
+    }
+    14% {
+        border-radius: 44% 56% 53% 47% / 62% 63% 37% 38%;
+    }
+    28% {
+        border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+    }
+    42% {
+        border-radius: 94% 6% 88% 12% / 14% 84% 16% 86%;
+    }
+    56% {
+        border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+    }
+    70% {
+        border-radius: 50% 50% 34% 66%/56% 68% 32% 44%;
+    }
+    84% {
+        border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+    }
+}
+@keyframes gradient {  
+    0%, 100% {
+    border-radius: 13% 87% 19% 81% / 62% 63% 37% 38%;
+    }
+    14% {
+        border-radius: 44% 56% 53% 47% / 62% 63% 37% 38%;
+    }
+    28% {
+        border-radius: 54% 46% 38% 62%/49% 70% 30% 51%;
+    }
+    42% {
+        border-radius: 94% 6% 88% 12% / 14% 84% 16% 86%;
+    }
+    56% {
+        border-radius: 61% 39% 67% 33%/70% 50% 50% 30%;
+    }
+    70% {
+        border-radius: 50% 50% 34% 66%/56% 68% 32% 44%;
+    }
+    84% {
+        border-radius: 46% 54% 50% 50%/35% 61% 39% 65%;
+    }
+}
+
+//kv右側の文字を、768px以下で消す(home-kv__side)
+.js-none{
+    display: none;
+}

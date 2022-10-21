@@ -1,0 +1,15 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+
+.breadcrumb{
+    padding: 15px 0;
+    line-height: 1.3;
+    font-size: 1.4rem;
+        &__home{
+            text-decoration: underline;
+            &:hover{
+                color: v.$base-color_01;
+                transition: .3s;
+            }
+        }
+}

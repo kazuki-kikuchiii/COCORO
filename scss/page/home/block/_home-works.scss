@@ -1,0 +1,85 @@
+@use "../../../base/vars" as v;
+@use "../../../mixin/breakpoints" as m;
+@use "../../../mixin/title" as title;
+@use "../../../mixin/btn" as btn;
+.home-works{
+    margin-bottom: 157px;
+        &__title{
+            @include title.title_02;
+            @include m.mq(sp){
+                align-items: center;
+            }
+        }
+        &__link{
+            display: inline-block;
+            text-decoration: underline;
+            padding-bottom: 25px;
+            flex-basis: 64px;
+                &:hover{
+                    color: v.$base-color_01;
+                    transition: .3s;
+                }
+        }
+        &__image{
+            width: 100%;
+            height: 170px;
+            border: solid 2px v.$line-color_02;
+            margin-bottom: 25px;
+            overflow: hidden;
+            cursor: pointer;
+            @include m.mq(other-3){
+                height: initial;
+            }
+            &:hover img{
+                transform: scale(1.1);
+            }
+            img{
+                height: 100%;
+                transition: transform .6s ease;
+                @include m.mq(other-3){
+                    height: 250px;
+                }
+                @include m.mq(sp){
+                    height: 200px;
+                }
+            }
+        }
+        &__other{
+            display: flex;
+            flex-direction: column;
+                &--time{
+                    text-align: right;
+                }
+        }
+        &__btn{
+            @include btn.btn_02;
+        }
+}
+
+//swiper
+.swiper-container{
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+.swiper-wrapper{
+    display: flex;
+    justify-content: center;
+    @include m.mq(tab){
+        justify-content: flex-start;
+    }
+}
+.swiper-slide{
+    width: 30%;
+    background-color: v.$base-color_04;
+    border-radius: 50px;
+    padding: 35px 32px 27px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    img{
+        width: 100%;
+        @include m.mq(sp){
+            width: 100%;
+        }
+    }
+}
